@@ -83,11 +83,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-uhlg496lTmABaK4Kjnse6dtSrl6k23XVvrF5z20d+NU=",
-        "path": "/nix/store/s8rw1a6hy6a6y9vzd13hm025dkwl5nr1-source/python",
+        "path": "/nix/store/m0dgjf4b85gh4jx0sk4h35ajw83vdnwy-source/python",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/s8rw1a6hy6a6y9vzd13hm025dkwl5nr1-source/python",
+        "path": "/nix/store/m0dgjf4b85gh4jx0sk4h35ajw83vdnwy-source/python",
         "type": "path"
       }
     },
@@ -110,11 +110,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-Vw/FtCnyVsmX+e0H6wa9lqYlX/g/m0wjabZGEGgfjFw=",
-        "path": "/nix/store/s8rw1a6hy6a6y9vzd13hm025dkwl5nr1-source/rust",
+        "path": "/nix/store/m0dgjf4b85gh4jx0sk4h35ajw83vdnwy-source/rust",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/s8rw1a6hy6a6y9vzd13hm025dkwl5nr1-source/rust",
+        "path": "/nix/store/m0dgjf4b85gh4jx0sk4h35ajw83vdnwy-source/rust",
         "type": "path"
       }
     },
