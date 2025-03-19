@@ -4,20 +4,14 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-    rust = {
-      url = "path:./rust";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    python = {
-      url = "path:./python";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    rust.url = "path:rust";
+    python.url = "path:python";
   };
 
   outputs = {
     flake-utils,
-    rust,
     python,
+    rust,
     ...
   }:
     flake-utils.lib.eachDefaultSystem (system: {

@@ -13,8 +13,8 @@
   }:
     utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        stdenv = pkgs.fastStdenv;
+        inherit system;
+        stdenv = nixpkgs.legacyPackages.${system}.fastStdenv;
       };
       pythonFast = pkgs.python313Full.override {
         enableOptimizations = true;
@@ -44,7 +44,7 @@
           VENV=.venv
 
           if test ! -d $VENV; then
-          	python3 -m venv $VENV
+            python3 -m venv $VENV
           fi
           source ./$VENV/bin/activate
           export PYTHONPATH=`pwd`/$VENV/${pythonFast.sitePackages}/:$PYTHONPATH

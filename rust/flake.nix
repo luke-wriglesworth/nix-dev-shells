@@ -13,17 +13,18 @@
     fenix,
     nixpkgs,
     ...
-  }: let
-    pkgs = import nixpkgs {system = "x86_64-linux";};
-  in
+  }:
     flake-utils.lib.eachDefaultSystem (system: {
-      devShells.default = pkgs.mkShell {
-        name = "rust";
-        buildInputs = [fenix.packages.x86_64-linux.latest.toolchain];
-        shellHook = ''
-          export CARGO_HOME="$PWD/.cargo"
-          export PATH="$CARGO_HOME/bin:$PATH"
-        '';
-      };
+      devShells.default = let
+        pkgs = import nixpkgs {inherit system;};
+      in
+        pkgs.mkShell {
+          name = "rust";
+          buildInputs = [fenix.packages.${system}.latest.toolchain];
+          shellHook = ''
+            export CARGO_HOME="$PWD/.cargo"
+            export PATH="$CARGO_HOME/bin:$PATH"
+          '';
+        };
     });
 }
