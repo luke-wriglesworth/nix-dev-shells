@@ -4,20 +4,18 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-    rust.url = "path:./rust";
-    python.url = "path:./python";
+    fenix.url = "github:nix-community/fenix";
   };
-
   outputs = {
     flake-utils,
-    python,
-    rust,
+    nixpkgs,
+    fenix,
     ...
   }:
     flake-utils.lib.eachDefaultSystem (system: {
       devShells = {
-        rust = rust.devShells.${system}.default;
-        python = python.devShells.${system}.default;
+        rust = import ./shells/rust.nix {inherit system nixpkgs fenix;};
+        python = import ./shells/python.nix {inherit system nixpkgs;};
       };
     });
 }
