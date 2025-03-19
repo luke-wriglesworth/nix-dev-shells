@@ -4,8 +4,8 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-    rust.url = "path:rust";
-    python.url = "path:python";
+    rust.url = "path:./rust";
+    python.url = "path:./python";
   };
 
   outputs = {

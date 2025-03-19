@@ -110,11 +110,11 @@
         "utils": "utils"
       },
       "locked": {
-        "path": "python",
+        "path": "./python",
         "type": "path"
       },
       "original": {
-        "path": "python",
+        "path": "./python",
         "type": "path"
       },
       "parent": []
@@ -134,11 +134,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "path": "rust",
+        "path": "./rust",
         "type": "path"
       },
       "original": {
-        "path": "rust",
+        "path": "./rust",
         "type": "path"
       },
       "parent": []
