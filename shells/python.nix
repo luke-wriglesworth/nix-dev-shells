@@ -1,10 +1,11 @@
 {
   nixpkgs,
   system,
+  ...
 }: let
   pkgs = import nixpkgs {
     inherit system;
-    stdenv = nixpkgs.legacyPackages.${system}.fastStdenv;
+    #config.replaceStdenv = {pkgs, ...}: pkgs.fastStdenv;
   };
   pythonFast = pkgs.python313Full.override {
     enableOptimizations = true;
@@ -19,14 +20,10 @@ in
   pkgs.mkShell {
     name = "python-venv";
     venvDir = "./.venv";
-    packages = with pkgs.python313Packages; [
+    packages = [
       pythonFast
-      numpy
-      scipy
-      matplotlib
-      ipykernel
-      tqdm
-      uv
+      pkgs.nodejs
+      pkgs.uv
     ];
     shellHook = ''
       SOURCE_DATE_EPOCH=$(date +%s)
@@ -38,7 +35,7 @@ in
       fi
       source ./$VENV/bin/activate
       export PYTHONPATH=`pwd`/$VENV/${pythonFast.sitePackages}/:$PYTHONPATH
-      alias pip="uv pip"
+      uv pip install matplotlib scipy numpy pandas ipykernel tqdm
     '';
 
     postShellHook = ''

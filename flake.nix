@@ -17,6 +17,7 @@
         rust = import ./shells/rust.nix {inherit system nixpkgs fenix;};
         python = import ./shells/python.nix {inherit system nixpkgs;};
         latex = import ./shells/LaTeX.nix {inherit system nixpkgs;};
+        haskell = import .shells/haskell.nix {inherit system nixpkgs;};
       };
     });
 }
